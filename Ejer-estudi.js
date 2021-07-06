@@ -4,6 +4,7 @@ var lea = require("prompt-sync")()
 
 var Canti_estu= parseInt(lea("Ingrese la cantidad de estudiantes a calificar: "))
 var Cont_estu= 1
+
 while (Cont_estu <= Canti_estu) {
   var Cod_estu= parseInt(lea("Código del Estudiante: "))
   var NM1= parseFloat(lea("Ingrese nota de la materia 1: "))
