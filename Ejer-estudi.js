@@ -6,7 +6,6 @@ var Canti_estu= parseInt(lea("Ingrese la cantidad de estudiantes a calificar: ")
 var Cont_estu= 1
 
 while (Cont_estu <= Canti_estu) {
-  //testing
   var Cod_estu= parseInt(lea("Código del Estudiante: "))
   var NM1= parseFloat(lea("Ingrese nota de la materia 1: "))
   var NCM1= parseFloat(lea("Ingrese número de créditos de la materia 1: "))
