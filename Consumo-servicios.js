@@ -40,7 +40,7 @@ function mostrarMensajeDeConsumo(
 }
 
 while (cont_N_usua <= N_usuarios) {
-  var cod_instalacion = parseInt(lea("Código de instalación: "));
+  var cod_instalacion = lea("Código de instalación: ");
   var Nombres_y_apell = lea("Nombres y Apellidos del usuarios: ");
   var consumo_de_luz = parseInt(lea("Consumo en kw/h de energía: "));
   var consumo_m3_agua = parseInt(lea("Consumo en m3 de agua: "));
@@ -63,29 +63,12 @@ while (cont_N_usua <= N_usuarios) {
     console.log(`Total a pagar por consumo= ${Total_pagar_estrato_1}`);
     console.log("________________________________");
 
-    if (Pago_de_luz > pago_anterior_de_luz) {
-      console.log(`CONSUMO DE LUZ SUBIO`);
-    } else {
-      if (Pago_de_luz < pago_anterior_de_luz) {
-        console.log(`CONSUMO DE LUZ BAJO`);
-      } else {
-        if (Pago_de_luz == pago_anterior_de_luz) {
-          console.log(`CONSUMO DE LUZ SE MANTUVO`);
-        }
-      }
-    }
-    if (Pago_de_agua > pago_anterior_agua) {
-      console.log("CONSUMO DE AGUA SUBIO");
-    } else {
-      if (Pago_de_agua < pago_anterior_agua) {
-        console.log("CONSUMO DE AGUA BAJO");
-      } else {
-        if (Pago_de_agua == pago_anterior_agua) {
-          console.log("CONSUMO DE AGUA SE MANTUVO");
-          console.log("----------------------------");
-        }
-      }
-    }
+    mostrarMensajeDeConsumo(
+      Pago_de_luz,
+      pago_anterior_de_luz,
+      Pago_de_agua,
+      pago_anterior_agua
+    );
   } else if (Estrato > 1 && Estrato < 4) {
     var Pago_de_luz = consumo_de_luz * 1000;
     var Pago_de_agua = consumo_m3_agua * 1200;
@@ -102,29 +85,12 @@ while (cont_N_usua <= N_usuarios) {
     console.log(`Total a pagar por consumo= ${Total_pagar_estrato_2y3}`);
     console.log("________________________________");
 
-    if (Pago_de_luz > pago_anterior_de_luz) {
-      console.log(`CONSUMO DE LUZ SUBIO`);
-    } else {
-      if (Pago_de_luz < pago_anterior_de_luz) {
-        console.log(`CONSUMO DE LUZ BAJO`);
-      } else {
-        if (Pago_de_luz == pago_anterior_de_luz) {
-          console.log(`CONSUMO DE LUZ SE MANTUVO`);
-        }
-      }
-    }
-    if (Pago_de_agua > pago_anterior_agua) {
-      console.log("CONSUMO DE AGUA SUBIO");
-    } else {
-      if (Pago_de_agua < pago_anterior_agua) {
-        console.log("CONSUMO DE AGUA BAJO");
-      } else {
-        if (Pago_de_agua == pago_anterior_agua) {
-          console.log("CONSUMO DE AGUA SE MANTUVO");
-          console.log("---------------------------");
-        }
-      }
-    }
+    mostrarMensajeDeConsumo(
+      Pago_de_luz,
+      pago_anterior_de_luz,
+      Pago_de_agua,
+      pago_anterior_agua
+    );
   } else if (Estrato == 4) {
     var Pago_de_luz = consumo_de_luz * 1000;
     var Pago_de_agua = consumo_m3_agua * 1200;
@@ -137,40 +103,18 @@ while (cont_N_usua <= N_usuarios) {
     console.log(`Total a pagar por consumo= ${Total_pagar_estrato_4}`);
     console.log("________________________________");
 
-    if (Pago_de_luz > pago_anterior_de_luz) {
-      console.log(`CONSUMO DE LUZ SUBIO`);
-    } else {
-      if (Pago_de_luz < pago_anterior_de_luz) {
-        console.log(`CONSUMO DE LUZ BAJO`);
-      } else {
-        if (Pago_de_luz == pago_anterior_de_luz) {
-          console.log(`CONSUMO DE LUZ SE MANTUVO`);
-        }
-      }
-    }
-    if (Pago_de_agua > pago_anterior_agua) {
-      console.log("CONSUMO DE AGUA SUBIO");
-    } else {
-      if (Pago_de_agua < pago_anterior_agua) {
-        console.log("CONSUMO DE AGUA BAJO");
-      } else {
-        if (Pago_de_agua == pago_anterior_agua) {
-          console.log("CONSUMO DE AGUA SE MANTUVO");
-          console.log("---------------------------");
-        }
-      }
-    }
+    mostrarMensajeDeConsumo(
+      Pago_de_luz,
+      pago_anterior_de_luz,
+      Pago_de_agua,
+      pago_anterior_agua
+    );
   } else {
     if (Estrato > 4 && Estrato <= 6) {
       var Pago_de_luz = consumo_de_luz * 1000;
-      console.log("---------------------------");
-      console.log("Pago_de_luz ", Pago_de_luz);
       var Pago_de_agua = consumo_m3_agua * 1200;
-      console.log("Pago de agua", Pago_de_agua);
       var Recargo = (Pago_de_luz + Pago_de_agua) * 0.2;
-      console.log("Recargo", Recargo);
       var Total_pagar = Pago_de_luz + Pago_de_agua + Recargo;
-      console.log("Total a pagar", Total_pagar);
       var suma_de_pagos_estrato_5y6 = suma_de_pagos_estrato_5y6 + Total_pagar;
 
       console.log(`------------------------------`);
