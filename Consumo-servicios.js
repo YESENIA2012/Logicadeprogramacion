@@ -48,7 +48,7 @@ while (cont_N_usua <= N_usuarios) {
   var pago_anterior_agua = parseInt(lea("Consumo anterior de agua: "));
   var Estrato = parseInt(lea("Estrato socioeconómico: "));
 
-  if (Estrato <= 1) {
+
     var Pago_de_luz = consumo_de_luz * 1000;
     var Pago_de_agua = consumo_m3_agua * 1200;
     var Descuento_del_estrato_1 = (Pago_de_luz + Pago_de_agua) * 0.5;

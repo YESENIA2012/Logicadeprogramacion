@@ -14,10 +14,10 @@ INICIO
 
   LEA N_numero_de_clientes
 
-  MIENTRAS contador_clientes <=  N_numero_de_clientes
-    Lea cant_sobres, ancho_sobre_persona, alto_sobre_persona // 300 => 20x15
+  MIENTRAS contador_clientes <=  N_numero_de_clientes HAGA:
+    Lea cant_sobres, ancho_sobre_persona, alto_sobre_persona 
 
-    Si ancho_sobre_persona <= sobres_grandes_ancho y alto_sobre_persona <= sobres_grandes_alto entonces:
+    Si sobres_grandes_cantdad > 0 y ancho_sobre_persona <= sobres_grandes_ancho y alto_sobre_persona <= sobres_grandes_alto entonces:
       cantidad_sobres = (sobres_grandes_cantidad - cant_sobres) 
       sobres_a_producir = (cantidad_sobres * -1)
       
@@ -30,23 +30,23 @@ INICIO
 
           Si sobres_grandes_cantidad <= 0 :
             sobres_grandes_cantidad = 0
-          Finsi    
+          Finsi 
       Finsi
     Finsi
 
-    SiNo si ancho_sobre_persona <= sobres_pequeños_ancho y alto_sobre_persona <= sobres_pequeños_alto entonces:
+    SiNo si sobres_pequeños_cantidad > 0 y ancho_sobre_persona <= sobres_pequeños_ancho y alto_sobre_persona <= sobres_pequeños_alto entonces:
       cantidad_sobres = (sobres_pequeños_cantidad - cant_sobres) 
       sobres_a_producir = (cantidad_sobres * -1)
       
       // no tengo que producir sobres
-      Escriba "La cantidad de sobres disponibles es = sobres_grandes_cantidad"
+      Escriba "La cantidad de sobres disponibles es = sobres_pequeños_cantidad"
       Escriba "La cantidad de sobres a produir es = sobres_a_producir"
 
-      Si sobres_grandes_cantidad > 0:
+      Si sobres_pequeños_cantidad > 0:
           sobres_grandes_cantidad = sobres_grandes_cantidad - cant_sobres
 
           Si sobres_pequeños_cantidad <= 0 :
-            sobres_pequeños_cantidad = 0
+              sobres_pequeños_cantidad = 0
           Finsi     
       Finsi
     Finsi
@@ -54,7 +54,7 @@ INICIO
     SiNo entonces:
       // no tengo disponibles en inventario para las tallas dadas
       Escriba "La cantidad de sobres disponibles es = 0"
-      Escriba "La cantidad de sobres a produir es = cant_sbores"
+      Escriba "La cantidad de sobres a produir es = cant_sobres"
     Finsi
     contador_clientes = contador_clientes + 1
   FIN_MIENTRAS
