@@ -29,37 +29,49 @@ while (contador_clientes <= N_numero_de_clientes) {
     ancho_sobre_persona <= sobres_grandes_ancho &&
     alto_sobre_persona <= sobres_grandes_alto
   ) {
-    var cantidad_sobres = sobres_grandes_cantidad - cant_sobres;
-    var sobres_a_producir = cantidad_sobres * -1;
-
-    console.log("La cantidad de sobres disponibles= ", sobres_grandes_cantidad);
-    console.log("La cantidad de sobres a producir= ", sobres_a_producir);
-    if (sobres_grandes_cantidad > 0) {
+    if (cant_sobres <= sobres_grandes_cantidad) {
+      var sobres_a_producir = 0
+      console.log("La cantidad de sobres a producir= ", sobres_a_producir);
+  } else {
+      if (cant_sobres > sobres_grandes_cantidad) {
+          sobres_a_producir = cant_sobres - sobres_grandes_cantidad
+      }
+      console.log("La cantidad de sobres a producir= ", sobres_a_producir);
+  }
+  
+  if (sobres_grandes_cantidad > 0) {
       sobres_grandes_cantidad = sobres_grandes_cantidad - cant_sobres;
     }
     if (sobres_grandes_cantidad <= 0) {
       sobres_grandes_cantidad = 0;
+      console.log("La cantidad de sobres disponibles= ", sobres_grandes_cantidad);
     }
+  
   } else if (
     sobres_pequeños_cantidad > 0 &&
     ancho_sobre_persona <= sobres_pequeños_ancho &&
     alto_sobre_persona <= sobres_pequeños_alto
   ) {
-    var cantidad_sobres = sobres_pequeños_cantidad - cant_sobres;
-    var sobres_a_producir = cant_sobres * -1;
-    console.log(
-      "La cantidad de sobres disponibles es = ",
-      sobres_pequeños_cantidad
-    );
-    console.log("La cantidad de sobres a producir = ", sobres_a_producir);
-
+    if (cant_sobres <= sobres_pequeños_cantidad) {
+        var sobres_a_producir = 0
+        console.log("La cantidad de sobres a producir= ", sobres_a_producir); 
+    } else {
+        if (cant_sobres > sobres_pequeños_cantidad) {
+            sobres_a_producir = cant_sobres - sobres_pequeños_cantidad
+            console.log("La cantidad de sobres a producir= ", sobres_a_producir); 
+        }
+    }
+    
     if (sobres_pequeños_cantidad > 0) {
-      sobres_pequeños_cantidad = sobres_pequeños_cantidad - cant_sobres;
-
+        sobres_pequeños_cantidad = sobres_pequeños_cantidad - cant_sobres;
+        
+      }
       if (sobres_pequeños_cantidad <= 0) {
         sobres_pequeños_cantidad = 0;
+        console.log("La cantidad de sobres disponibles= ", sobres_pequeños_cantidad);
       }
-    }
+    
+    
   } else {
     console.log("La cantidad de sobres disponibles es = 0");
     console.log("La cantidad de sobres a producir es = ", cant_sobres);
