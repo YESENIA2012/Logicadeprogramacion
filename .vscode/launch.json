@@ -9,7 +9,8 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/sobres_producir.js"
+      "program": "${workspaceFolder}/sobres_producir.js",
+      "runtimeExecutable": "/Users/yeseniapaolagonzalezpenaranda/.nvm/versions/node/v14.17.3/bin/node"
     }
   ]
 }
