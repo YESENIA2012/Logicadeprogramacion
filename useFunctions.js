@@ -2,7 +2,6 @@ var lea = require("prompt-sync")();
 
 var numerosOrdenar = parseInt(lea("Ingrese cantidad de números: "));
 var numeroMenor = 0;
-var numeroMedio = 0;
 var numeroMayor = 0;
 var contador = 1;
 
@@ -28,7 +27,6 @@ function encontrarMayor(num, numeroMenor, numeroMayor) {
 
 function mostrarNumeros(numeroMenor, numeroMedio, numeroMayor) {
   console.log("El número menor es: ", numeroMenor);
-  console.log("El número medio= ", numeroMedio);
   console.log("El número mayor= ", numeroMayor);
 }
 
@@ -42,4 +40,4 @@ while (contador <= numerosOrdenar) {
   contador = contador + 1;
 }
 
-mostrarNumeros(numeroMenor, numeroMedio, numeroMayor);
+mostrarNumeros(numeroMenor, numeroMayor);
