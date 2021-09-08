@@ -9,10 +9,7 @@ var cantidadElementosVectorB = parseInt(
 var vectorA = [];
 var vectorB = [];
 var vectorC = [];
-var contador2 = 0;
 var contador = 0;
-var elementosIguales = true;
-var elementosVectorB = 0;
 
 for (contador = 0; contador < cantidadElementosVectorA; contador++) {
   var numero = parseInt(lea("Introduzca el elemento para el vector A: "));
@@ -27,7 +24,9 @@ for (contador = 0; contador < vectorA.length; contador++) {
 }
 
 for (contador = 0; contador < vectorB.length; contador++) {
-  elementosVectorB = vectorB[contador];
+  let elementosVectorB = vectorB[contador];
+  let contador2 = 0;
+  var elementosIguales = true;
 
   while (contador2 < vectorA.length && elementosIguales == true) {
     var elementosVectorA = vectorA[contador2];
@@ -39,7 +38,7 @@ for (contador = 0; contador < vectorB.length; contador++) {
   }
   if (elementosVectorB != elementosVectorA) {
     elementosIguales = true;
-    var longitud = vectorC.length;
+    let longitud = vectorC.length;
     vectorC[longitud] = elementosVectorB;
   }
   contador2 = 0;
