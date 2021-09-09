@@ -26,7 +26,7 @@ for (contador = 0; contador < vectorA.length; contador++) {
 for (contador = 0; contador < vectorB.length; contador++) {
   let elementosVectorB = vectorB[contador];
   let contador2 = 0;
-  var elementosIguales = true;
+  let elementosIguales = true;
 
   while (contador2 < vectorA.length && elementosIguales == true) {
     var elementosVectorA = vectorA[contador2];
@@ -36,8 +36,7 @@ for (contador = 0; contador < vectorB.length; contador++) {
     }
     contador2 = contador2 + 1;
   }
-  if (elementosVectorB != elementosVectorA) {
-    elementosIguales = true;
+  if (elementosIguales) {
     let longitud = vectorC.length;
     vectorC[longitud] = elementosVectorB;
   }
