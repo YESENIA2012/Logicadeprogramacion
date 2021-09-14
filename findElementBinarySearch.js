@@ -1,6 +1,6 @@
 let lea = require("prompt-sync")();
 
-var vector = [7, 21, 37, 42, 57, 76];
+var vector = [10, 20, 50, 90, 100];
 console.log(vector);
 var encontrado = false;
 var indiceMinimo = 0;
@@ -31,5 +31,5 @@ if (encontrado == true) {
     posicionElemento
   );
 } else {
-  "El valor", valorBuscado, "no se encuentra dentro del vecto";
+  console.log("El valor", valorBuscado, "no se encuentra dentro del vector");
 }
