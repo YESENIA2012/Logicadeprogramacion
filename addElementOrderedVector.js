@@ -1,32 +1,59 @@
 let lea = require("prompt-sync")();
 var vector = [10, 21, 53, 74, 91, 100];
 var valorInsertar = parseInt(lea("Ingrese la variable a insertar: "));
-var contador = 0;
+var encontrado = false;
+var indiceMinimo = 0;
+var indiceMaximo = vector.length - 1;
 
-function ingresarElemtOrdenado(vector, valorInsertar, contador) {
-  while (contador < vector.length && valorInsertar > vector[contador]) {
+function busquedaBinaria(vector, valorInsertar) {
+  while (indiceMinimo <= indiceMaximo && encontrado == false) {
+    var mitadVector = Math.floor((indiceMinimo + indiceMaximo) / 2);
+    if (valorInsertar == vector[mitadVector]) {
+      encontrado = true;
+    } else if (valorInsertar < vector[mitadVector]) {
+      indiceMaximo = mitadVector - 1;
+    } else {
+      indiceMinimo = mitadVector + 1;
+    }
+  }
+  return encontrado;
+}
+
+function ingresarElemtOrdenado(vector, valorInsertar) {
+  var contador = 0;
+
+  var valorAnterior = vector[contador];
+  while (
+    contador < vector.length &&
+    valorInsertar > vector[contador] &&
+    encontrado == false
+  ) {
     contador = contador + 1;
     var valorAnterior = vector[contador];
   }
   console.log(
-    "La posición donde se debe infresar el elemento es en el indice= ",
+    "La posición donde se debe ingresar el elemento es en el indice= ",
     contador
   );
   vector[contador] = valorInsertar;
   tamañoVector = vector.length + 1;
   contador2 = contador + 1;
 
-  while (contador2 <= tamañoVector) {
+  while (contador2 < tamañoVector) {
     elemento = vector[contador2];
-    if (valorAnterior >= valorInsertar) {
-      vector[contador2] = valorAnterior;
-    }
+    vector[contador2] = valorAnterior;
     valorAnterior = elemento;
-    valorInsertar = valorAnterior;
+
     contador2 = contador2 + 1;
   }
   return vector;
 }
 
-nuevoVector = ingresarElemtOrdenado(vector, valorInsertar, contador);
-console.log(nuevoVector);
+posicionElemento = busquedaBinaria(vector, valorInsertar);
+
+if (encontrado == true) {
+  console.log("El elemento ya esta dentro del vector");
+} else {
+  nuevoVector = ingresarElemtOrdenado(vector, valorInsertar);
+  console.log(nuevoVector);
+}
