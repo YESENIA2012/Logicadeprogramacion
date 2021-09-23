@@ -21,7 +21,7 @@ function busquedaBinaria(vector, valorInsertar) {
 
 function ingresarElemtOrdenado(vector, valorInsertar) {
   var contador = 0;
-
+  var posicionContador = contador;
   var valorAnterior = vector[contador];
   while (
     contador < vector.length &&
@@ -30,21 +30,28 @@ function ingresarElemtOrdenado(vector, valorInsertar) {
   ) {
     contador = contador + 1;
     var valorAnterior = vector[contador];
+    posicionContador = contador;
   }
+  console.log(posicionContador);
+
   console.log(
     "La posición donde se debe ingresar el elemento es en el indice= ",
     contador
   );
-  vector[contador] = valorInsertar;
   tamañoVector = vector.length + 1;
-  contador2 = contador + 1;
+  vector[contador] = valorInsertar;
 
-  while (contador2 < tamañoVector) {
-    elemento = vector[contador2];
-    vector[contador2] = valorAnterior;
-    valorAnterior = elemento;
+  if (posicionContador == vector.length) {
+    vector[contador + 1] = valorInsertar;
+  } else {
+    contador2 = contador + 1;
+    while (contador2 < tamañoVector) {
+      elemento = vector[contador2];
+      vector[contador2] = valorAnterior;
+      valorAnterior = elemento;
 
-    contador2 = contador2 + 1;
+      contador2 = contador2 + 1;
+    }
   }
   return vector;
 }
