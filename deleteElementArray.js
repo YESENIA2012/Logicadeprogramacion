@@ -40,7 +40,7 @@ vector[vectorNuevoLongitud] = 5
 
 */
 function filterArraySolutionOne(vector) {
-  var contador = 0;
+  let contador = 0;
   const vectorNuevo = [];
   while (contador < vector.length) {
     const elementoVector = vector[contador];
@@ -55,8 +55,8 @@ function filterArraySolutionOne(vector) {
 }
 
 function filterArraySolutionTwo(vector) {
-  var contador = 0;
-  var contador2 = 0;
+  let contador = 0;
+  let contador2 = 0;
   const vectorNuevo = [];
   while (contador < vector.length) {
     const elementoVector = vector[contador];
