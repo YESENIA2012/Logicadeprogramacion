@@ -1,12 +1,12 @@
 let lea = require("prompt-sync")();
-var vector = [1, 2, 1, 3, 4, 1, 5, 6, 1];
+var vector = [3, 1, 1, 3, 4, 1, 5, 6, 1];
 var contador = 1;
+var contador2 = 0;
 var primerElemento = vector[0];
 console.log(primerElemento);
 
 while (contador < vector.length) {
   elementoVector = vector[contador];
-  var contador2 = 1;
 
   if (elementoVector == primerElemento) {
     vector[contador] = 0;
