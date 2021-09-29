@@ -1,17 +1,22 @@
-let lea = require("prompt-sync")();
-var vector = [1, 1, 1, 3, 4, 1, 5, 6, 1];
-var contador = 1;
-var contador2 = 0;
-var primerElemento = vector[0];
+function convertDuplicatedNumbersIntoZeros(vector) {
+  const copiaVector = vector.map((number) => {
+    return number;
+  });
+  var contador = 1;
+  var contador2 = 0;
+  var primerElemento = copiaVector[0];
 
-while (contador < vector.length) {
-  elementoVector = vector[contador];
+  while (contador < copiaVector.length) {
+    elementoVector = copiaVector[contador];
 
-  if (elementoVector == primerElemento) {
-    vector[contador] = 0;
-    contador2 = contador2 + 1;
+    if (elementoVector == primerElemento) {
+      copiaVector[contador] = 0;
+      contador2 = contador2 + 1;
+    }
+    contador = contador + 1;
   }
-  contador = contador + 1;
+  return copiaVector;
 }
-console.log(vector);
-console.log("Se modificaron", contador2, "posiciones del vector");
+//convertDuplicatedNumbersIntoZeros(vector);
+//Para hacer pública la función
+module.exports = convertDuplicatedNumbersIntoZeros;
