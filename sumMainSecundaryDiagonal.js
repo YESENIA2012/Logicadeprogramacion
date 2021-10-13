@@ -1,14 +1,14 @@
-let lea = require("prompt-sync")();
+/*let lea = require("prompt-sync")();
 
-var vector = [
+var matrix = [
   [, , , ,],
   [, , , ,],
   [, , , ,],
   [, , , ,],
 ];
 
-for (contador = 0; contador < vector.length; contador++) {
-  let filaMatrix = vector[contador];
+for (contador = 0; contador < matrix.length; contador++) {
+  let filaMatrix = matrix[contador];
   let contador2 = 0;
   console.log("Fila: ", contador);
   while (contador2 < filaMatrix.length) {
@@ -17,22 +17,32 @@ for (contador = 0; contador < vector.length; contador++) {
     contador2 = contador2 + 1;
   }
 }
-console.log(vector);
+console.log(matrix);
+*/
+function sumDiagonals(matrix) {
+  var sumaDiagonalPrincipal = 0;
+  var sumaDiagonalSecundaria = 0;
 
-var sumaDiagonalPrincipal = 0;
-var sumaDiagonalSecundaria = 0;
-
-for (contador = 0; contador < vector.length; contador++) {
-  let filaMatrix = vector[contador];
-  for (contador2 = 0; contador2 < filaMatrix.length; contador2++) {
-    let columnaMatrix = filaMatrix[contador2];
-    if (contador == contador2) {
-      sumaDiagonalPrincipal = sumaDiagonalPrincipal + columnaMatrix;
-    }
-    if (contador + contador2 == vector.length - 1) {
-      sumaDiagonalSecundaria = sumaDiagonalSecundaria + columnaMatrix;
+  for (contador = 0; contador < matrix.length; contador++) {
+    let filaMatrix = matrix[contador];
+    for (contador2 = 0; contador2 < filaMatrix.length; contador2++) {
+      let columnaMatrix = filaMatrix[contador2];
+      if (contador == contador2) {
+        sumaDiagonalPrincipal = sumaDiagonalPrincipal + columnaMatrix;
+      }
+      if (contador + contador2 == matrix.length - 1) {
+        sumaDiagonalSecundaria = sumaDiagonalSecundaria + columnaMatrix;
+      }
     }
   }
+  return {
+    sumatoriaDiagonalPrincipal: sumaDiagonalPrincipal,
+    sumatoriaDiagonalSecundaria: sumaDiagonalSecundaria,
+  };
 }
-console.log("La suma de la diagonal principal = ", sumaDiagonalPrincipal);
-console.log("La suma de la diagonal Secundaria = ", sumaDiagonalSecundaria);
+//var diagonales = sumDiagonals(matrix);
+
+//console.log(diagonales);
+//console.log("Principal", diagonales.variableDeSumatoria);
+//console.log("Secundaria", diagonales.variableDeSumatoriaDiagonalSecundaria);
+module.exports = sumDiagonals;
