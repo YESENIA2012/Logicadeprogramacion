@@ -2,8 +2,8 @@ var expect = require("chai").expect;
 
 const mainfunction = require("../sumMainSecundaryDiagonal");
 
-describe("Sum of main and secundary Diagonals", function () {
-  it("should show the sum between the main and secondary diagonal", function () {
+describe("Add sumatory of primary and secondary diagonals", function () {
+  it("should show the sum of primary and secondary diagonals equal 10", function () {
     const matrix = [
       [1, 2, 3, 4],
       [1, 2, 3, 4],
@@ -20,6 +20,7 @@ describe("Sum of main and secundary Diagonals", function () {
     expect(result1).to.eql(expectedResult);
     expect(result2).to.eql(expectedResult2);
   });
+
   it("it should show 0 as a result", function () {
     const matrix = [
       [0, 0, 0, 0],
