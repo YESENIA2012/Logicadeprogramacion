@@ -8,27 +8,26 @@ var matrix = [
 
 async function introducirElementosMatrix(matrix) {
   lea.start();
+  var matrixCopia = [];
+
   for (contador = 0; contador < matrix.length; contador++) {
-    var filaMatrix = matrix[contador];
     var contador2 = 0;
-    console.log("Fila: ", contador);
-    while (contador2 < filaMatrix.length) {
+    matrixCopia[contador] = [];
+    var filaMatriz = matrix[contador];
+
+    while (contador2 < filaMatriz.length) {
       var numeroInsertarColumnas = await lea.get("numero");
-      console.log(numeroInsertarColumnas);
-
-      filaMatrix[contador2] = parseInt(numeroInsertarColumnas.numero);
-
+      matrixCopia[contador][contador2] = parseInt(
+        numeroInsertarColumnas.numero
+      );
       contador2 = contador2 + 1;
     }
   }
-  //console.log(matrix);
-  return matrix;
+  return matrixCopia;
 }
 
-var introducir = introducirElementosMatrix(matrix).then(function (matrix) {
-  console.log(matrix);
+var introducir = introducirElementosMatrix(matrix).then(function (matrixCopia) {
+  console.log("matriz copia: ", matrixCopia);
 });
-//var introducir = introducirElementosMatrix(matrix);
-console.log(introducir);
 
-//module.exports = { introducirElementosMatrix };
+module.exports = { introducirElementosMatrix };
