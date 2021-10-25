@@ -2,7 +2,6 @@ var expect = require("chai").expect;
 const sinon = require("sinon");
 const lea = require("prompt-async");
 const mainfunction = require("../introducingElementsTwoDimensionalArray");
-// const functionUnderTest = require("../introducingElementUnderTest");
 
 describe("Add elements", function () {
   let randomNumbers = [];
