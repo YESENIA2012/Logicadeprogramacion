@@ -4,13 +4,13 @@ var vector = [
   [5, 6],
 ];
 
-for (contador = 0; contador < vector.length; contador++) {
-  let filaMatrix = vector[contador];
-  console.log("Columnas en la fila:", contador);
+for (counter = 0; counter < vector.length; counter++) {
+  let matrixRow = vector[counter];
+  console.log("columns in row:", counter);
 
-  for (contador2 = 0; contador2 < filaMatrix.length; contador2++) {
-    var columnaMatrix = filaMatrix[contador2];
-    console.log(columnaMatrix);
+  for (counter2 = 0; counter2 < matrixRow.length; counter2++) {
+    var matrixColumn = matrixRow[counter2];
+    console.log(matrixColumn);
   }
 }
 console.log(vector);
