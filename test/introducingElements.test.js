@@ -6,8 +6,7 @@ const mainfunction = require("../introducingElementsTwoDimensionalArray");
 
 describe("Add elements", function () {
   let randomNumbers = [];
-
-  it("should show an array of length two", async function () {
+  before(function () {
     sinon.stub(lea, "start").callsFake(function fakeFn() {
       return null;
     });
@@ -18,15 +17,43 @@ describe("Add elements", function () {
       randomNumberObject = { numero: randomNumber };
       return randomNumberObject;
     });
+  });
+  after(function () {
+    lea.start.restore();
+    lea.get.restore();
+  });
+  beforeEach(function () {
+    randomNumbers = [];
+  });
+
+  it("should insert random numbers into a 2 * 3 matrix", async function () {
     const matrix = [
       [, , ,],
       [, , ,],
     ];
     const resultado = await mainfunction.introducirElementosMatrix(matrix);
-    console.log(randomNumbers);
-    console.log(resultado);
 
     expect(randomNumbers[0]).to.eql(resultado[0][0]);
     expect(resultado).to.have.lengthOf(2);
+    expect(randomNumbers[3]).to.eql(resultado[1][0]);
+    expect(resultado[0]).to.have.lengthOf(3);
+    expect(randomNumbers[1]).to.eql(resultado[0][1]);
+    expect(resultado[1]).to.have.lengthOf(3);
+  });
+
+  it("should insert random numbers into a 3 * 3 matrix", async function () {
+    const matrix = [
+      [, ,],
+      [, ,],
+      [, ,],
+    ];
+    const resultado = await mainfunction.introducirElementosMatrix(matrix);
+
+    expect(resultado).to.have.lengthOf(3);
+    expect(randomNumbers[0]).to.eql(resultado[0][0]);
+    expect(randomNumbers[3]).to.eql(resultado[1][1]);
+    expect(resultado[0]).to.have.lengthOf(2);
+    expect(randomNumbers[1]).to.eql(resultado[0][1]);
+    expect(resultado[1]).to.have.lengthOf(2);
   });
 });
