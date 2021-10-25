@@ -1,11 +1,5 @@
 const lea = require("prompt-async");
 
-var matrix = [
-  [, ,],
-  [, ,],
-  [, ,],
-];
-
 async function introducirElementosMatrix(matrix) {
   lea.start();
   var matrixCopia = [];
@@ -25,9 +19,5 @@ async function introducirElementosMatrix(matrix) {
   }
   return matrixCopia;
 }
-
-var introducir = introducirElementosMatrix(matrix).then(function (matrixCopia) {
-  console.log("matriz copia: ", matrixCopia);
-});
 
 module.exports = { introducirElementosMatrix };
